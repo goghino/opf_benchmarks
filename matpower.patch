@@ -1,0 +1,64 @@
+diff --git a/lib/ipoptopf_solver.m b/lib/ipoptopf_solver.m
+index a123e1b7..cb9a901e 100644
+--- a/lib/ipoptopf_solver.m
++++ b/lib/ipoptopf_solver.m
+@@ -71,9 +71,11 @@ ny = om.getN('var', 'y');   %% number of piece-wise linear costs
+
+ %% linear constraints
+ [A, l, u] = om.params_lin_constraint();
++u = u + 1e-10;
+
+ %% bounds on optimization vars
+ [x0, xmin, xmax] = om.params_var();
++xmax = xmax + 1e-10;
+
+ %% build admittance matrices
+ [Ybus, Yf, Yt] = makeYbus(baseMVA, bus, branch);
+@@ -232,6 +234,7 @@ else
+     output.iterations = [];
+ end
+ f = opf_costfcn(x, om);
++[h, g] = opf_consfcn(x, om, options.auxdata.Ybus, options.auxdata.Yf, options.auxdata.Yt, options.auxdata.mpopt, options.auxdata.il);
+
+ %% update solution data
+ if mpopt.opf.v_cartesian
+@@ -363,8 +366,8 @@ mu = struct( ...
+
+ results = mpc;
+ [results.bus, results.branch, results.gen, ...
+-    results.om, results.x, results.mu, results.f] = ...
+-        deal(bus, branch, gen, om, x, mu, f);
++    results.om, results.x, results.mu, results.f, results.g, results.h] = ...
++        deal(bus, branch, gen, om, x, mu, f, g, h);
+
+ pimul = [ ...
+   results.mu.nln.l - results.mu.nln.u;
+diff --git a/lib/ktropf_solver.m b/lib/ktropf_solver.m
+index 3e7dc7d2..7e490969 100644
+--- a/lib/ktropf_solver.m
++++ b/lib/ktropf_solver.m
+@@ -217,6 +217,13 @@ else
+                                     xmin, xmax, gh_fcn, fmoptions, opt_fname);
+ end
+ success = (info == 0);
++if isfield(info, 'iter')
++    output.iterations = info.iter;
++else
++    output.iterations = [];
++end
++f = f_fcn(x);
++[h, g] = gh_fcn(x);
+
+ %% delete ktropts file
+ if create_ktropts_file  %% ... but only if I created it
+@@ -356,8 +363,8 @@ mu = struct( ...
+
+ results = mpc;
+ [results.bus, results.branch, results.gen, ...
+-    results.om, results.x, results.mu, results.f] = ...
+-        deal(bus, branch, gen, om, x, mu, f);
++    results.om, results.x, results.mu, results.f, results.g, results.h] = ...
++        deal(bus, branch, gen, om, x, mu, f, g, h);
+
+ pimul = [ ...
+   results.mu.nln.l - results.mu.nln.u;

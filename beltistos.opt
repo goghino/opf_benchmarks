@@ -1,0 +1,28 @@
+                  nlp_scaling_method      gradient-based
+            nlp_scaling_max_gradient      1.000000
+     nlp_scaling_obj_target_gradient      1.000000
+  nlp_scaling_constr_target_gradient      1.000000
+                         mu_strategy      adaptive
+                            max_iter      500
+                         mu_max_fact      1
+                           mu_oracle      quality-function
+                     fixed_mu_oracle      quality-function
+                      corrector_type      affine 
+
+                        dual_inf_tol      1e-1
+                       compl_inf_tol      1e-1
+                     constr_viol_tol      1e-1
+
+                     pardiso_iterative    yes
+               pardiso_iter_max_levels    1         #1
+             pardiso_iter_relative_tol    1e-12     #1e-12
+                      pardiso_max_iter    10        #50
+
+                  min_refinement_steps    0
+                  max_refinement_steps    2 
+pardiso_max_iterative_refinement_steps    0
+
+                           print_level    5
+               print_timing_statistics    yes
+                     beltistos_verbose    1
+                        pardiso_msglvl    0 

@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+\definecolor{mycolor1}{RGB}{255, 73, 92}
+\definecolor{mycolor2}{RGB}{ 74, 173, 82}
+\definecolor{mycolor3}{RGB}{63, 124, 172}
+\definecolor{mycolor4}{RGB}{ 242, 100, 25}
+\definecolor{mycolor5}{RGB}{216, 151, 60}
+
+%define input data
+\pgfplotstableread{../profile.dat}
+\datatable
+
+  \begin{axis}[name=symb,
+  	width=\columnwidth, height=8cm, 
+  	%ybar,
+	%bar width=5pt, 
+	%ymode=log, 
+	log origin=infty,
+	%ymin=8e-1,
+	ymax=1,
+	axis lines*=left, 
+	ymajorgrids, yminorgrids,
+	%xtick=data,
+	%xticklabels from table={\datatable}{ALPHA},
+	%xtick={0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+	%xticklabels={16, 32,64,128,256,512,1024,2048,4096,8192,16384},
+	%xticklabels={8,16, 32,64,128,256,512,1024,2048,4096,8192,16384},
+	xticklabel style={rotate=0, xshift=-0.0cm, anchor=north, font=\scriptsize},
+	%ytick={0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+	%yticklabels={$10^{-1}$, , , , , , , , $10^0$, , , , , , , , ,$10^1$},
+	yticklabel style={font=\scriptsize},
+	ylabel style={font=\scriptsize},
+	xlabel style={font=\scriptsize},
+	ylabel={$P(\alpha)$},
+	xlabel={$\alpha$},
+    legend style={at={(0.85,1.2)},legend cell align=left,align=right,draw=white!85!black,font=\tiny,legend columns=4}
+	]
+	
+    \addplot[color=mycolor1, thick] table[x=ALPHA, y=SOLVER1] {\datatable}; 
+    \addlegendentry{Solver 1}
+
+    \addplot[color=mycolor2, dashed, thick] table[x=ALPHA, y=SOLVER2] {\datatable}; 
+    \addlegendentry{Solver 2}
+
+    \addplot[color=mycolor3, dotted, thick] table[x=ALPHA, y=SOLVER3] {\datatable}; 
+    \addlegendentry{Solver 3}
+
+    \addplot[color=mycolor4, densely dashed, thick] table[x=ALPHA, y=SOLVER4] {\datatable}; 
+    \addlegendentry{Solver 4}
+
+    \addplot[color=mycolor5, dashdotted, thick] table[x=ALPHA, y=SOLVER5] {\datatable}; 
+    \addlegendentry{Solver 5}
+  \end{axis}
+  
+\end{tikzpicture}

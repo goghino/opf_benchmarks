@@ -1,0 +1,9 @@
+maxit 500
+maxtime_real 43200
+par_numthreads 1
+feastol_abs    1e-11
+opttol_abs    1e-11
+xtol 1e-16
+xtol_iters 500
+ftol 1e-16
+ftol_iters 500

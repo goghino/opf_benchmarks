@@ -1,0 +1,48 @@
+                  nlp_scaling_method      gradient-based
+            nlp_scaling_max_gradient      1.000000
+     nlp_scaling_obj_target_gradient      1.000000
+  nlp_scaling_constr_target_gradient      1.000000
+                         mu_strategy      adaptive
+                            max_iter      500
+                         mu_max_fact      1
+                           mu_oracle      quality-function
+                     fixed_mu_oracle      quality-function
+  #                        mu_oracle      loqo
+  #                  fixed_mu_oracle      loqo
+  #                        mu_oracle      probing
+  #                  fixed_mu_oracle      probing
+  #        adaptive_mu_globalization      obj-constr-filter
+                      corrector_type      affine 
+
+dual_inf_tol   1e-12
+compl_inf_tol    1e-12
+constr_viol_tol    1e-12
+tol    1e-12
+ 
+                         linear_solver    beltistos-opf
+                     pardiso_iterative    yes
+               pardiso_iter_max_levels    1         #1
+             pardiso_iter_relative_tol    1e-12     #1e-12
+                      pardiso_max_iter    10        #50
+
+                  min_refinement_steps    0
+                  max_refinement_steps    2 
+pardiso_max_iterative_refinement_steps    0
+
+                           print_level    0
+               print_timing_statistics    no
+                     beltistos_verbose    0
+                        pardiso_msglvl    0 
+#                          output_file    case3375wp00-pardiso.out
+
+                       acceptable_iter    5
+            acceptable_constr_viol_tol    1e-5
+               acceptable_dual_inf_tol    1e0
+              acceptable_compl_inf_tol    1e-4
+
+
+#     start_with_resto                    yes
+#     expect_infeasible_problem           yes
+#     required_infeasibility_reduction    1e-4
+#     obj_max_inc                         1.01
+#    soft_resto_pderror_reduction_factor  1

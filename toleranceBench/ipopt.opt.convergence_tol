@@ -1,0 +1,22 @@
+                 linear_solver                    beltistos-opf
+       print_timing_statistics                    no
+            nlp_scaling_method                    gradient-based
+      nlp_scaling_max_gradient                    1.000000
+nlp_scaling_obj_target_gradient                   1.000000
+nlp_scaling_constr_target_gradient                1.000000
+                   mu_strategy                    adaptive
+                   max_iter                       500
+                   mu_max_fact                    1
+                     mu_oracle                    quality-function
+               fixed_mu_oracle                    quality-function
+     adaptive_mu_globalization                    kkt-error #obj-constr-filter
+     min_refinement_steps                         0
+             acceptable_iter                      500
+             acceptable_tol                       1e-6
+tol    1e-12
+dual_inf_tol   1e-12
+compl_inf_tol    1e-12
+constr_viol_tol    1e-12
+             
+             
+             beltistos_verbose                    1
