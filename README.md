@@ -3,7 +3,8 @@ structure exploiting solution method of the MPOPF problems. Additionaly,
 it contains benchmark environment that can be used to reproduce the results
 from the technical report: 
 
-@misc{kardos2018complete,
+```
+@misc{1807.03964,
     title={Complete results for a numerical evaluation of interior point solvers for large-scale optimal power flow problems},
     author={Juraj Kardos and Drosos Kourounis and Olaf Schenk and Ray Zimmerman},
     year={2018},
@@ -11,6 +12,7 @@ from the technical report:
     archivePrefix={arXiv},
     primaryClass={math.OC}
 }
+```
 
 
 Dependencies:
@@ -39,7 +41,7 @@ PARDISO Vers. 6.0, Runtime Modules of Parallel Sparse Linear Solver.
 Copyright Universita della Svizzera Italiana 2000-2018. All Rights Reserved.
 For more information visit https://www.pardiso-project.org
 
-For third party solvers visit https://www.artelys.com/solvers/knitro/ (KNITRO).
+For KNITRO solver visit https://www.artelys.com/solvers/knitro/.
 
 INSTALL:
 ========
@@ -66,8 +68,8 @@ specify the power grids using the array `grids`.
 The initial point is configured using `OPFstarts`.
 The OPF problem formulation is specified via `OPFvoltages` and `OPFbalances` arrays.
 Next, specify the number of time periods (`Nperiods`) and storage devices (`Nstorages`).
-If `Nperiod=1` a standard OPF problem is run. For `Nperiod>1` the MPOPF problem with
-Nstorage devices is run. 
+If `Nperiods=1` a standard OPF problem is run. For `Nperiods>1` the MPOPF problem with
+`Nstorage` devices is run. 
 Finally, specify which solvers should be used to solve the benchmarks using `solvers` array.
 
 The benchmarks are executed using the parameters specified in these array as following:
