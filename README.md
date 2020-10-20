@@ -86,4 +86,4 @@ benchmark_MATPOWER($Nperiod, $Nstorage, '$OPFcase',$OPFsolver, $OPFstart, $OPFvo
 ```
 
 #### Notes
-In order to properly extract the values from the Matpower, you need to apply the patch 'matpower.patch'. Please make sure you apply the patch to the Matpower v7.0 (e.g. do  `git checkout 7.0` in the matpower git repository).
+In order to extract additional information from the Matpower (e.g. constraint violations), you need to apply the patch 'matpower.patch'. Please make sure you apply the patch to the Matpower v7.0 (e.g. do  `git checkout 7.0` in the Matpower git repository).
