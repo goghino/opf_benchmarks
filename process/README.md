@@ -1,4 +1,4 @@
-The script `process.sh' can be used to extract the desired information from the benchmark logs. The benchmark configuration is assumed to be specified in `config_process.sh`. 
+The script `process.sh` can be used to extract the desired information from the benchmark logs. The benchmark configuration is assumed to be specified in `config_process.sh`. 
 
 ```
 usage: ./process.sh option prefix
